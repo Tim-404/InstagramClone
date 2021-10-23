@@ -29,7 +29,6 @@ public class LoginActivity extends AppCompatActivity {
 
         if (ParseUser.getCurrentUser() != null) {
             goMainActivity();
-            return;
         }
 
         etUsername = findViewById(R.id.etUsername);
