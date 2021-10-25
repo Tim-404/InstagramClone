@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -21,6 +22,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
     public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 42;
 
+    private BottomNavigationView bottomNavigationView;
     private EditText etDescription;
     private Button btnCaptureImage;
     private ImageView ivPostImage;
@@ -48,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
         etDescription = findViewById(R.id.etDescription);
         btnCaptureImage = findViewById(R.id.btnCaptureImage);
         ivPostImage = findViewById(R.id.ivPostImage);
@@ -79,7 +83,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        queryPosts();
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment fragment;
+                switch (item.getItemId()) {
+                    case R.id.action_home:
+                        Toast.makeText(MainActivity.this, "Home!", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.action_compose:
+                        Toast.makeText(MainActivity.this, "Compose!", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.action_profile:
+                        Toast.makeText(MainActivity.this, "Profile!", Toast.LENGTH_SHORT).show();
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
     @Override
