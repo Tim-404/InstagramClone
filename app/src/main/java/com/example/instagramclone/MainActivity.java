@@ -8,17 +8,14 @@ import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.example.instagramclone.fragments.ComposeFragment;
 import com.example.instagramclone.fragments.PostsFragment;
+import com.example.instagramclone.fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.ParseUser;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,10 +42,8 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new ComposeFragment();
                         break;
                     case R.id.action_profile:
-                        fragment = new ComposeFragment();
-                        break;
                     default:
-                        fragment = new ComposeFragment();
+                        fragment = new ProfileFragment();
                 }
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
                 return true;
