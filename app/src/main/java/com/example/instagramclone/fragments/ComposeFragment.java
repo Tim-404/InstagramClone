@@ -36,11 +36,6 @@ import com.parse.SaveCallback;
 import java.io.File;
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ComposeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ComposeFragment extends Fragment {
 
     public static final String TAG = "ComposeFragment";
@@ -55,21 +50,6 @@ public class ComposeFragment extends Fragment {
 
     public ComposeFragment() {
         // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ComposeFragment.
-     */
-    public static ComposeFragment newInstance(String param1, String param2) {
-        ComposeFragment fragment = new ComposeFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
@@ -170,7 +150,7 @@ public class ComposeFragment extends Fragment {
             public void done(ParseException e) {
                 if (e != null) {
                     Log.e(TAG, "Error while saving", e);
-                    Toast.makeText(getContext(), "Error while saving", Toast.LENGTH_SHORT);
+                    Toast.makeText(getContext(), "Error while saving", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -180,23 +160,4 @@ public class ComposeFragment extends Fragment {
         });
     }
 
-    private void queryPosts() {
-        // Specify which class to query
-        ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
-        // Specify the object id
-        query.include(Post.KEY_USER);
-        query.findInBackground(new FindCallback<Post>() {
-            @Override
-            public void done(List<Post> posts, ParseException e) {
-                if (e != null) {
-                    Log.e(TAG, "Issue with getting posts", e);
-                    return;
-                }
-
-                for (Post post : posts) {
-                    Log.i(TAG, "Post: " + post.getDescription() + ", username: " + post.getUser().getUsername());
-                }
-            }
-        });
-    }
 }

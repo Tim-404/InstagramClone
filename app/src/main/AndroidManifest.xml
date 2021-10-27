@@ -18,7 +18,8 @@
         android:name=".ParseApplication"
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
-        android:theme="@style/Theme.InstagramClone">
+        android:theme="@style/Theme.InstagramClone"
+        android:usesCleartextTraffic="true" >
 
         <provider
             android:name="androidx.core.content.FileProvider"
