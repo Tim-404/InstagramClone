@@ -100,6 +100,7 @@ public class PostsFragment extends Fragment {
 
                 postsAdapter.addAll(fetchedPosts);
                 postsAdapter.notifyDataSetChanged();
+                swipeContainer.setRefreshing(false);
             }
         });
     }

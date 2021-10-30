@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="custom_button_light_gray">#CDCDCD</color>
+    <color name="custom_button_light_green">#46C84B</color>
+    <color name="custom_button_light_blue">#03A9F4</color>
+</resources>

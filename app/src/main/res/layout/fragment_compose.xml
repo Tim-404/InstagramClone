@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,20 +12,24 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/ivPostImage"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="50dp"
+        android:backgroundTint="#03A9F4"
         android:ems="10"
-        android:hint="Description"
+        android:hint="@string/description"
         android:inputType="text" />
 
     <Button
         android:id="@+id/btnCaptureImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/ivPostImage"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Take Picture" />
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="@color/custom_button_light_gray"
+        android:text="@string/take_picture" />
 
     <Button
         android:id="@+id/btnSubmit"
@@ -32,14 +37,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/etDescription"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="0dp"
-        android:text="Post" />
+        android:layout_marginTop="16dp"
+        android:text="@string/post" />
 
     <ImageView
         android:id="@+id/ivPostImage"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_below="@+id/btnCaptureImage"
+        android:layout_centerInParent="true"
         android:layout_marginStart="16dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="16dp"
