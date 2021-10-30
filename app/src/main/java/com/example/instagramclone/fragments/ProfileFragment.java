@@ -11,6 +11,9 @@ import com.parse.ParseUser;
 import java.util.List;
 
 public class ProfileFragment extends PostsFragment {
+
+    private static final String TAG = "ProfileFragment";
+
     @Override
     protected void queryPosts() {
        // Specify which class to query
@@ -34,6 +37,7 @@ public class ProfileFragment extends PostsFragment {
 
                 posts.addAll(fetchedPosts);
                 postsAdapter.notifyDataSetChanged();
+                swipeContainer.setRefreshing(false);
             }
         });
     }
